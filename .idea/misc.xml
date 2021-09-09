@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/drawable/bg_gradient.xml" value="0.1527777777777778" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/drawable/dugme.xml" value="0.2064814814814815" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/drawable/dugme2.xml" value="0.21979166666666666" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/drawable/dugme3.xml" value="0.21979166666666666" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/drawable/dugmeuklj.xml" value="0.21979166666666666" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout-v17/activity_main.xml" value="0.13229166666666667" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/activity_main.xml" value="0.1296875" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/activity_relay_sijal_status.xml" value="0.33" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/activity_temp_command.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/activity_ui_test.xml" value="0.1296875" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/activity_upis.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy1/app/src/main/res/layout/recycler_view_item.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy3/app/src/main/res/layout/activity_relay_sijal_status.xml" value="0.22" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugme.xml" value="0.253125" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugme2.xml" value="0.24635416666666668" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugme3.xml" value="0.24635416666666668" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugme4.xml" value="0.25" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugmeuklj.xml" value="0.253125" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugmeuklj2.xml" value="0.253125" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugmeuklj3.xml" value="0.253125" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/drawable/dugmeuklj4.xml" value="0.253125" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/layout/activity_relay_sijal_status.xml" value="0.265625" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/layout/activity_temp_command.xml" value="0.22708333333333333" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/layout/activity_ui_test.xml" value="0.25" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/layout/activity_upis.xml" value="0.22708333333333333" />
+        <entry key="..\:/Android aplikacije/smsapplicationMy4/app/src/main/res/layout/recycler_view_item.xml" value="0.22708333333333333" />
+        <entry key="..\:/Android programi/smsapplicationMy4/app/src/main/res/layout/activity_p_komanda.xml" value="0.17" />
+        <entry key="..\:/Android programi/smsapplicationMy4/app/src/main/res/layout/activity_relay_sijal_status.xml" value="0.14375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
