@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">sms-application</string>
+    <string name="rele2">rele2</string>
+    <string name="relay_status">Relay status</string>
+    <string name="ukljuci">Uključi</string>
+    <string name="svetlo_spolja">Svetlo Spolja</string>
+</resources>

@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>RelayStatus.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RelayStatus.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.sms_application</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.content.IntentFilter</span>
+<span class="s1">import android.graphics.Color</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.telephony.SmsManager</span>
+<span class="s1">import android.telephony.SmsMessage</span>
+<span class="s1">import android.util.Log</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.widget.*</span>
+<span class="s1">import com.example.sms_application.SmsConstants.SMS_MESSAGE_STATUS_CHECK</span>
+<span class="s1">import com.example.sms_application.SmsConstants.SMS_NUMBER</span>
+
+<span class="s0">class </span><span class="s1">RelayStatus : AppCompatActivity() {</span>
+
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">smsBroadcastReceiver : SmsBroadcastReceiver</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">layout: RelativeLayout</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_relay_sijal_status)</span>
+
+        <span class="s2">//getting relative layout that swipe is going to be performed on</span>
+        <span class="s1">layout = findViewById(R.id.relativeLayoutRelay2)</span>
+
+        <span class="s2">//setting listener that will listen to onSwipe event</span>
+        <span class="s1">layout.setOnTouchListener(</span><span class="s0">object </span><span class="s1">: OnSwipeTouchListener() {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onSwipeLeft() {</span>
+                <span class="s1">Log.e(</span><span class="s3">&quot;ViewSwipe&quot;</span><span class="s1">, </span><span class="s3">&quot;Left&quot;</span><span class="s1">)</span>
+
+            <span class="s1">}</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">onSwipeRight() {</span>
+                <span class="s1">Log.e(</span><span class="s3">&quot;ViewSwipe&quot;</span><span class="s1">, </span><span class="s3">&quot;Right&quot;</span><span class="s1">)</span>
+                <span class="s0">val </span><span class="s1">intent = Intent(applicationContext, MainActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intent)</span>
+            <span class="s1">}</span>
+
+        <span class="s1">})</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onStart() {</span>
+
+        <span class="s1">smsBroadcastReceiver = </span><span class="s0">object </span><span class="s1">: SmsBroadcastReceiver() {</span>
+            <span class="s1">override </span><span class="s0">fun </span><span class="s1">broadcastResult(sms: SmsMessage) {</span>
+<span class="s2">//</span>
+                <span class="s0">val </span><span class="s1">firstFourCharacters = sms.displayMessageBody.take(</span><span class="s4">4</span><span class="s1">)</span>
+                <span class="s0">if </span><span class="s1">(firstFourCharacters.contains(</span><span class="s3">&quot;OFF&quot;</span><span class="s1">, ignoreCase = </span><span class="s0">true</span><span class="s1">) || firstFourCharacters.contains(</span><span class="s3">&quot;ON&quot;</span><span class="s1">, ignoreCase = </span><span class="s0">true</span><span class="s1">)) {</span>
+
+                    <span class="s0">val </span><span class="s1">relayOne: TextView = findViewById(R.id.relay1)</span>
+                    <span class="s0">val </span><span class="s1">relayTwo: TextView = findViewById(R.id.relay2)</span>
+                    <span class="s0">val </span><span class="s1">relayThree: TextView = findViewById(R.id.relay3)</span>
+                    <span class="s0">val </span><span class="s1">relayFour: TextView = findViewById(R.id.relay4)</span>
+                    <span class="s0">val </span><span class="s1">Status1: ImageView = findViewById(R.id.Status_R1)</span>
+                    <span class="s0">val </span><span class="s1">Status2: ImageView = findViewById(R.id.Status_R2)</span>
+                    <span class="s0">val </span><span class="s1">Status3: ImageView = findViewById(R.id.Status_R3)</span>
+                    <span class="s0">val </span><span class="s1">Status4: ImageView = findViewById(R.id.Status_R4)</span>
+
+                    <span class="s0">val </span><span class="s1">relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)</span>
+                    <span class="s0">val </span><span class="s1">Statusi = arrayListOf(Status1,Status2,Status3,Status4)</span>
+                    <span class="s2">//                  FORMAT -&gt; 1OFF2ON 3OFF4ON</span>
+                    <span class="s0">for </span><span class="s1">((index, value) </span><span class="s0">in </span><span class="s1">relays.withIndex()) {</span>
+                        <span class="s0">val </span><span class="s1">delimiter = (index + </span><span class="s4">1</span><span class="s1">).toString()</span>
+
+                        <span class="s2">//will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on</span>
+                        <span class="s1">value.text = sms.displayMessageBody.substringAfterLast(delimiter, </span><span class="s3">&quot;OFF&quot;</span><span class="s1">).take(</span><span class="s4">3</span><span class="s1">)</span>
+
+                        <span class="s0">if</span><span class="s1">(value.text == </span><span class="s3">&quot;OFF&quot;</span><span class="s1">){</span>
+                            <span class="s1">value.setTextColor(Color.RED)</span>
+                            <span class="s0">val </span><span class="s1">StatusslikaID = resources.getIdentifier(</span><span class="s3">&quot;zeleno1&quot;</span><span class="s1">, </span><span class="s3">&quot;drawable&quot;</span><span class="s1">, packageName)</span>
+                            <span class="s1">Status1.setImageResource(StatusslikaID)</span>
+                          <span class="s2">//  Status1.setImageDrawable(getResources().getDrawable(R.drawable.zeleno1))</span>
+
+                        <span class="s1">}</span><span class="s0">else </span><span class="s1">{</span>
+                            <span class="s1">value.setTextColor(Color.GREEN)</span>
+                            <span class="s0">val </span><span class="s1">StatusslikaID = resources.getIdentifier(</span><span class="s3">&quot;crveno1&quot;</span><span class="s1">, </span><span class="s3">&quot;drawable&quot;</span><span class="s1">, packageName)</span>
+                            <span class="s1">Status1.setImageResource(StatusslikaID)</span>
+                       <span class="s2">//     Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))</span>
+                        <span class="s1">}</span>
+                    <span class="s1">}</span>
+
+                <span class="s1">}</span>
+
+                <span class="s0">var </span><span class="s1">progressBar: ProgressBar = findViewById(R.id.pBarTemp)</span>
+                <span class="s1">progressBar.visibility = View.GONE</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span>
+
+        <span class="s1">registerReceiver(smsBroadcastReceiver, IntentFilter(</span><span class="s3">&quot;android.provider.Telephony.SMS_RECEIVED&quot;</span><span class="s1">))</span>
+        <span class="s0">super</span><span class="s1">.onStart()</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onStop() {</span>
+
+        <span class="s2">//unregister receiver when changing the action</span>
+        <span class="s1">unregisterReceiver(smsBroadcastReceiver)</span>
+        <span class="s0">super</span><span class="s1">.onStop()</span>
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">checkRelayStatus(view: View) {</span>
+        <span class="s1">Log.d(</span><span class="s3">&quot;receiveMessage&quot;</span><span class="s1">, </span><span class="s3">&quot;Got sms message&quot;</span><span class="s1">)</span>
+
+        <span class="s0">val </span><span class="s1">smsManager = SmsManager.getDefault() </span><span class="s0">as </span><span class="s1">SmsManager</span>
+        <span class="s1">smsManager.sendTextMessage(SMS_NUMBER, </span><span class="s0">null</span><span class="s1">, SMS_MESSAGE_STATUS_CHECK, </span><span class="s0">null</span><span class="s1">, </span><span class="s0">null</span><span class="s1">)</span>
+
+        <span class="s1">Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s3">&quot;Loading..&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show()</span>
+        <span class="s0">var </span><span class="s1">progressBar: ProgressBar = findViewById(R.id.pBarTemp)</span>
+        <span class="s1">progressBar.visibility = View.VISIBLE</span>
+    <span class="s1">}</span>
+    <span class="s0">fun </span><span class="s1">sendSmsUkljuci(view: View) {</span>
+
+        <span class="s1">Log.i(SmsConstants.TAG, </span><span class="s3">&quot;Sending sms Ukljuci to received: &quot; </span><span class="s1">+ intent.action)</span>
+        <span class="s0">val </span><span class="s1">smsManager2 = SmsManager.getDefault() </span><span class="s0">as </span><span class="s1">SmsManager</span>
+
+        <span class="s2">//send message</span>
+        <span class="s2">// val SMS_MESSAGE_UKLJUCI</span>
+        <span class="s1">smsManager2.sendTextMessage(SMS_NUMBER, </span><span class="s0">null</span><span class="s1">, SmsConstants.SMS_MESSAGE_UKLJUCI, </span><span class="s0">null</span><span class="s1">, </span><span class="s0">null</span><span class="s1">)</span>
+
+        <span class="s1">Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s3">&quot;Slanje..&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show()</span>
+
+        <span class="s2">//  var progressBar: ProgressBar = findViewById(R.id.pBarTemp)</span>
+        <span class="s2">//progressBar.visibility = View.VISIBLE</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
