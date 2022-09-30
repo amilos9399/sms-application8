@@ -6,8 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
-    android:id="@+id/relativeLayout"
+    android:id="@+id/relativeLayoutMain"
     tools:context=".MainActivity">
+
 
     <RelativeLayout
         android:id="@+id/content_main"
@@ -33,9 +34,10 @@
                 android:id="@+id/updated_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20 April 2012, 20:08 PM"
+                android:text="15 April 2021, 20:08 PM"
                 android:textColor="#FFFFFF"
                 android:textSize="14dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -54,16 +56,6 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-thin"
-                android:text="25°C"
-                android:textColor="#FFFFFF"
-                android:textSize="90dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +73,14 @@
                     android:id="@+id/temp_min_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="11.4°C"
+                    android:text="11.4"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/temp_min_celsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="°C"
                     android:textColor="#FFFFFF" />
 
                 <Space
@@ -100,7 +99,14 @@
                     android:id="@+id/temp_max_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="25.3°C"
+                    android:text="25.3"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/temp_max_celsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="°C"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 
@@ -124,6 +130,62 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pBarTemp"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="227dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="80dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#2196F3"
+            android:max="100"
+            android:minWidth="250dp"
+            android:minHeight="50dp"
+            android:progress="1"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginStart="66dp"
+            android:layout_marginLeft="66dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginRight="59dp"
+            android:layout_marginBottom="564dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="--°C"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp" />
+
 
     </RelativeLayout>
 </RelativeLayout>
