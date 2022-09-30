@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative_P"
+    android:id="@+id/strana_P_komande"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="0dp"
@@ -12,13 +16,6 @@
     android:visibility="visible"
 
     tools:context=".P_command">
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="476dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -32,7 +29,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="141dp"
         android:layout_marginBottom="11dp"
-        android:text="Broj1"
+        android:text="@string/broj1"
         android:textColor="@color/white" />
 
     <Button
@@ -40,8 +37,10 @@
         android:layout_width="171dp"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentStart="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="false"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
@@ -51,6 +50,7 @@
         android:gravity="center|center_horizontal"
         android:onClick="checkRelayStatus"
         android:text="Refresh"
+        android:textColor="#BBDEFB"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_marginTop="76dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:text="Upisani brojevi"
+        android:text="@string/upisani_brojevi"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         tools:layout_marginLeft="150dp" />
@@ -90,15 +90,22 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="244dp"
         android:layout_marginRight="244dp"
-        android:text="Ručići"
+        android:text="@string/ru_i_i"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
     <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
+        android:id="@+id/padajuci_meni1"
+        android:layout_width="208dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="372dp" />
+        android:layout_marginStart="107dp"
+        android:layout_marginLeft="107dp"
+        android:layout_marginTop="368dp"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        tools:visibility="invisible" />
 
 </RelativeLayout>

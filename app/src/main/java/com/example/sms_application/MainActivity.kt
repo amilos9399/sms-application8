@@ -30,6 +30,8 @@ import com.example.sms_application.SmsConstants.MY_PERMISSIONS_REQUEST_RECEIVE_S
 import com.example.sms_application.SmsConstants.SMS_MESSAGE_TEMPERATURE_CHECK
 import com.example.sms_application.SmsConstants.SMS_NUMBER
 import com.example.sms_application.SmsConstants.TAG
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,18 +43,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var layout: RelativeLayout
    // public static SharedPreferences getDefaultSharedPreferences (Context context)
 
+    //   var  txt22 = findViewById<TextView>(R.id.temp_min_text2).apply {
+        //txt22 = "Milos"
+
+ //  }
 
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
         //intialize shared preference
         var mypref = PreferenceManager.getDefaultSharedPreferences(this);
 
         //getting relative layout that swipe is going to be performed on
-        layout = findViewById(R.id.relativeLayoutMain)
+        layout = findViewById(R.id.glavna_strana)
 
         //setting listener that will listen to onSwipe event
         layout.setOnTouchListener(object : OnSwipeTouchListener() {
@@ -68,6 +72,11 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+         //   val intent = Intent(applicationContext, RelayStatus::class.java)
+        //    startActivity(intent)
+
+
+        val strDate = "Current Time :  + getCurrentDate()"
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ||
@@ -99,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             override fun broadcastResult(sms: SmsMessage) {
 
                 var progressBar:ProgressBar = findViewById(R.id.pBarTemp)
-                progressBar.visibility = View.INVISIBLE
+                progressBar.visibility = View.VISIBLE
 
                 val temperature: TextView = findViewById(R.id.temp)
 //              Format -> Temp C +022.5
@@ -194,8 +203,8 @@ class MainActivity : AppCompatActivity() {
     fun sendSmsMessage(view: View) {
 
         Log.i(TAG, "Sending sms message to received: " + intent.action)
-        val smsManager1 = SmsManager.getDefault() as SmsManager
-        smsManager1.sendTextMessage(SMS_NUMBER, null, "test message", null, null)
+        val smsManager = SmsManager.getDefault() as SmsManager
+        smsManager.sendTextMessage(SMS_NUMBER, null, "test message", null, null)
         Toast.makeText(this, "Message Sent", Toast.LENGTH_SHORT).show()
     }
 
@@ -203,6 +212,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RelayStatus::class.java)
         startActivity(intent)
     }
-
-
 }
+

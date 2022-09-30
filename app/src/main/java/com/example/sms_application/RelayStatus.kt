@@ -68,13 +68,14 @@ class RelayStatus : AppCompatActivity() {
         })
 
         //getting relative layout that swipe is going to be performed on
-        layout = findViewById(R.id.relativeLayoutRelay1)
+        layout = findViewById(R.id.strana_relea)
 
         //setting listener that will listen to onSwipe event
         layout.setOnTouchListener(object : OnSwipeTouchListener() {
             override fun onSwipeLeft() {
                 Log.e("ViewSwipe", "Left")
-
+                val intent = Intent(applicationContext, P_command::class.java)
+                startActivity(intent)
             }
             override fun onSwipeRight() {
                 Log.e("ViewSwipe", "Right")

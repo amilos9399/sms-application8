@@ -11,24 +11,30 @@
 
 
     <RelativeLayout
-        android:id="@+id/content_main"
+        android:id="@+id/glavna_strana"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <DigitalClock
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="125dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="521dp"
+            android:gravity="center"
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/addressContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="58dp"
             android:gravity="center"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Temperature"
-                android:textColor="#FFFFFF"
-                android:textSize="24dp" />
 
             <TextView
                 android:id="@+id/updated_at"
@@ -126,6 +132,7 @@
             android:fontFamily="sans-serif-thin"
             android:onClick="sendSmsForTemperature"
             android:text="Refresh"
+            android:textColor="#212121"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,18 +150,18 @@
         <ProgressBar
             android:id="@+id/pBarTemp"
             style="?android:attr/progressBarStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="80dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginStart="163dp"
+            android:layout_marginLeft="163dp"
             android:layout_marginTop="227dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginEnd="172dp"
+            android:layout_marginRight="172dp"
             android:indeterminate="true"
             android:indeterminateTint="#2196F3"
             android:max="100"
@@ -165,7 +172,7 @@
 
         <TextView
             android:id="@+id/temp"
-            android:layout_width="286dp"
+            android:layout_width="169dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -174,17 +181,42 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_marginStart="66dp"
-            android:layout_marginLeft="66dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="59dp"
-            android:layout_marginRight="59dp"
-            android:layout_marginBottom="564dp"
+            android:layout_marginStart="136dp"
+            android:layout_marginLeft="136dp"
+            android:layout_marginTop="114dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginRight="106dp"
+            android:layout_marginBottom="534dp"
             android:fontFamily="sans-serif-thin"
+            android:gravity="center"
             android:text="--°C"
             android:textColor="#FFFFFF"
             android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="136dp"
+            android:layout_marginLeft="136dp"
+            android:text="Temperature"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/temp_min_text2"
+            android:layout_width="120dp"
+            android:layout_height="41dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="616dp"
+            android:text="Min Temp: "
+            android:textColor="#FFFFFF" />
 
 
     </RelativeLayout>
