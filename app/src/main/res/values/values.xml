@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style
+        name="ToolbarSpinner" parent="@style/Theme.Smsapplication">
+        <item name="android:spinnerItemStyle">@style/ToolbarSpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/ToolbarSpinnerDropDownItem</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:dropDownWidth" > 100dp </item>
+    </style>
+
+    <style name="ToolbarSpinnerItem" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:dropDownWidth" > 100dp </item>
+
+    </style>
+
+    <style name="ToolbarSpinnerDropDownItem" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lineSpacingMultiplier" > 0.5 </item>
+        <item name="android:dropDownWidth" > 100dp </item>
+    </style>
+</resources>

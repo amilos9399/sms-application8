@@ -17,4 +17,8 @@ object SmsConstants {
     const val SMS_MESSAGE_STATUS_CHECK = "S??"
     const val CELSIUS_DEGREES = "°C"
     const val STATUS_STANJA = "1OFF2OFF3OFF4OFF"
+    const val SMS_MESSAGE_PUKLJ1 = "P1"
+    const val SMS_MESSAGE_PUKLJ2 = "P2"
+    const val SMS_MESSAGE_PUKLJ3 = "P3"
+    const val SMS_MESSAGE_PUKLJ4 = "P4"
 }

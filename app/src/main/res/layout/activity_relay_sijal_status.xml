@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayoutRelay1"
+    android:id="@+id/strana_relea"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="0dp"
@@ -12,6 +12,20 @@
     android:visibility="visible"
 
     tools:context=".RelayStatus">
+
+    <DigitalClock
+        android:id="@+id/digitalClock2"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginLeft="142dp"
+        android:layout_marginTop="652dp"
+        android:gravity="center"
+        android:textColor="#3E2723"
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -328,9 +342,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="630dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="598dp"
         android:background="#3F51B5"
         android:fontFamily="sans-serif-thin"
         android:gravity="center|center_horizontal"
