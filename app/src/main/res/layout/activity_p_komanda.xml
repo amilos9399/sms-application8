@@ -16,11 +16,37 @@
     tools:context=".P_command">
 
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginLeft="188dp"
+        android:layout_marginTop="108dp"
+        android:text="Posalji"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/padajuci_meni2" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="94dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginBottom="8dp"
+        android:text="Izabrati izlaz"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/padajuci_meni2"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Spinner
         android:id="@+id/padajuci_meni2"
         android:layout_width="166dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="80dp"
         android:padding="1dp"
         android:paddingLeft="1dp"
         android:paddingTop="1dp"
@@ -48,14 +74,14 @@
         android:layout_width="77dp"
         android:layout_height="79dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="192dp"
-        android:layout_marginLeft="192dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="12dp"
         android:foreground="@drawable/dugmeuklj"
         android:text="@string/button"
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="@+id/padajuci_meni1"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Spinner
         android:id="@+id/padajuci_meni1"
