@@ -98,7 +98,7 @@ class RelayStatus : AppCompatActivity() {
         //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
         val relays = arrayListOf(Status1,Status2,Status3,Status4)
         //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
-        sacuvano = getSharedPreferences("filesacuvano", 0)
+        //sacuvano = getSharedPreferences("filesacuvano", 0)
         //  var textmessage2
         //   var textmessage2
 

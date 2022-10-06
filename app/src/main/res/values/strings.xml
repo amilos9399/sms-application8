@@ -11,6 +11,11 @@
     <string name="izabrati">Izabrati</string>
     <string name="button">Button</string>
     <string name="izabrati_vreme_rada_u_minutama">izabrati vreme rada u minutama</string>
+    <string name="posalji">Posalji</string>
+    <string name="izabrati_izlaz">Izabrati izlaz</string>
+    <string name="textview">TextView</string>
+    <string name="po_alji">Pošalji</string>
+    <string name="izabrati_vreme_rada_u_minutima">Izabrati vreme rada u minutima</string>
     <string-array name="vremenaString">
         <item>"10"</item>
         <item>"20"</item>

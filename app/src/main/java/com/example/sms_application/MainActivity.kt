@@ -30,6 +30,7 @@ import com.example.sms_application.SmsConstants.MY_PERMISSIONS_REQUEST_RECEIVE_S
 import com.example.sms_application.SmsConstants.SMS_MESSAGE_TEMPERATURE_CHECK
 import com.example.sms_application.SmsConstants.SMS_NUMBER
 import com.example.sms_application.SmsConstants.TAG
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -57,7 +58,14 @@ class MainActivity : AppCompatActivity() {
 
         //getting relative layout that swipe is going to be performed on
         layout = findViewById(R.id.glavna_strana)
+         /*  val datum: TextView = findViewById(R.id.datumvreme)
+          //  datum.text = Current Time :  + getCurrentDate()
 
+
+          val currentDateTimeString: String  = DateFormat.getDateTimeInstance().format( Date());
+
+// textView is the TextView view that should display it
+            datum.text = currentDateTimeString*/
         //setting listener that will listen to onSwipe event
         layout.setOnTouchListener(object : OnSwipeTouchListener() {
             override fun onSwipeLeft() {
@@ -77,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         //    startActivity(intent)
 
 
-        val strDate = "Current Time :  + getCurrentDate()"
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ||
@@ -104,10 +112,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
-
+        layout = findViewById(R.id.glavna_strana)
+        val datum: TextView = findViewById(R.id.updated_at)
+        val currentDateTimeString: String  = DateFormat.getDateTimeInstance().format( Date());
+        datum.text = currentDateTimeString
         smsBroadcastReceiver = object : SmsBroadcastReceiver() {
             override fun broadcastResult(sms: SmsMessage) {
-
+                var strDate = "Current Time :  + getCurrentDate()"
                 var progressBar:ProgressBar = findViewById(R.id.pBarTemp)
                 progressBar.visibility = View.VISIBLE
 
@@ -151,6 +162,8 @@ class MainActivity : AppCompatActivity() {
         }
         var progressBar: ProgressBar = findViewById(R.id.pBarTemp)
         progressBar.visibility = View.GONE
+
+
 
         registerReceiver(
             smsBroadcastReceiver,
