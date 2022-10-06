@@ -40,7 +40,7 @@
                 android:id="@+id/updated_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15 April 2021, 20:08 PM"
+
                 android:textColor="#FFFFFF"
                 android:textSize="14dp" />
 
@@ -204,19 +204,6 @@
             android:text="Temperature"
             android:textColor="#FFFFFF"
             android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/temp_min_text2"
-            android:layout_width="120dp"
-            android:layout_height="41dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="156dp"
-            android:layout_marginLeft="156dp"
-            android:layout_marginTop="616dp"
-            android:text="Min Temp: "
-            android:textColor="#FFFFFF" />
 
 
     </RelativeLayout>
