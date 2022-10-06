@@ -148,25 +148,25 @@ class P_command : AppCompatActivity() {
     lateinit var smsBroadcastReceiver1 : SmsBroadcastReceiver
 
     override fun onStart() {
-
+        super.onStart()
         var sacuvano1: SharedPreferences? =
             applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
         var editor: SharedPreferences.Editor = sacuvano1!!.edit()
-       layout1 = findViewById(R.id.strana_P_komande)
-        val status1: ImageView = findViewById(R.id.status_R9)
-        val status2: ImageView = findViewById(R.id.status_R10)
-        val status3: ImageView = findViewById(R.id.status_R11)
-        val status4: ImageView = findViewById(R.id.status_R12)//
+      // layout1 = findViewById(R.id.strana_P_komande)
+        val status5: ImageView = findViewById(/* id = */ R.id.status_R9)
+      //  val status6: ImageView = findViewById(R.id.status_R10)
+      //  val status3: ImageView = findViewById(R.id.status_R11)
+      //  val status4: ImageView = findViewById(R.id.status_R12)//
         //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
-        val relays = arrayListOf(status1,status2,status3,status4)
-        //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
+     //   val relays = arrayListOf(status1,status2,status3,status4)
+        //    FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
         //sacuvano = getSharedPreferences("filesacuvano", 0)
         //  var textmessage2
-        //   var textmessage2
+        //  var textmessage2
 
         var textmessage = sacuvano1.getString("porukaizmemo","1OFF2OFF3OFF4OFF")
 
-        for ((index, value) in relays.withIndex()) {
+      /*  for ((index, value) in relays.withIndex()) {
             var delimiter = (index + 1).toString()
             //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
             var textmessage1 = (textmessage!!.substringAfterLast(delimiter, "OFF").take(3))
@@ -184,7 +184,7 @@ class P_command : AppCompatActivity() {
                 relays[index].setImageResource(statusslikaID)
                 //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
             }
-        }
+        }*/
 
         smsBroadcastReceiver1 = object : SmsBroadcastReceiver() {
             override fun broadcastResult(sms: SmsMessage) {
@@ -204,7 +204,7 @@ class P_command : AppCompatActivity() {
 
                    textmessage = sms.displayMessageBody
 
-                    for ((index, value) in relays.withIndex()) {
+                   /* for ((index, value) in relays.withIndex()) {
                         var delimiter = (index + 1).toString()
                         //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
                         var textmessage1 = sms.displayMessageBody.substringAfterLast(delimiter, "OFF").take(3)
@@ -222,7 +222,7 @@ class P_command : AppCompatActivity() {
                             relays[index].setImageResource(statusslikaID)
                             //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
                         }
-                    }
+                    }*/
                     editor.putString("porukaizmemo", textmessage);
                     editor.apply(); // commit changes
 
@@ -230,13 +230,13 @@ class P_command : AppCompatActivity() {
             }
         }
         registerReceiver(smsBroadcastReceiver1, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
-        super.onStart()
+
     }
     override fun onStop() {
-
+        super.onStop()
         //unregister receiver when changing the action
         unregisterReceiver(smsBroadcastReceiver1)
-        super.onStop()
+
     }
     fun sendSmsIskljuci1(konstanta: String) {
 
