@@ -17,7 +17,7 @@ import com.example.sms_application.SmsConstants.SMS_NUMBER
 
 
 class P_command : AppCompatActivity() {
-    lateinit var smsBroadcastReceiver : SmsBroadcastReceiver
+
     val pozicije2 = arrayOf(
         "10",
         "20",
@@ -145,26 +145,26 @@ class P_command : AppCompatActivity() {
         })
     }
 
-
+    lateinit var smsBroadcastReceiver1 : SmsBroadcastReceiver
 
     override fun onStart() {
 
-        var sacuvano: SharedPreferences? =
+        var sacuvano1: SharedPreferences? =
             applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
-        var editor: SharedPreferences.Editor = sacuvano!!.edit()
-       // layout1 = findViewById(R.id.strana_P_komande)
-        val Status1: ImageView = findViewById(R.id.status_R9)
-        val Status2: ImageView = findViewById(R.id.status_R10)
-        val Status3: ImageView = findViewById(R.id.status_R11)
-        val Status4: ImageView = findViewById(R.id.status_R12)//
+        var editor: SharedPreferences.Editor = sacuvano1!!.edit()
+       layout1 = findViewById(R.id.strana_P_komande)
+        val status1: ImageView = findViewById(R.id.status_R9)
+        val status2: ImageView = findViewById(R.id.status_R10)
+        val status3: ImageView = findViewById(R.id.status_R11)
+        val status4: ImageView = findViewById(R.id.status_R12)//
         //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
-        val relays = arrayListOf(Status1,Status2,Status3,Status4)
+        val relays = arrayListOf(status1,status2,status3,status4)
         //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
         //sacuvano = getSharedPreferences("filesacuvano", 0)
         //  var textmessage2
         //   var textmessage2
 
-        var textmessage = sacuvano.getString("porukaizmemo","1OFF2OFF3OFF4OFF")
+        var textmessage = sacuvano1.getString("porukaizmemo","1OFF2OFF3OFF4OFF")
 
         for ((index, value) in relays.withIndex()) {
             var delimiter = (index + 1).toString()
@@ -186,7 +186,7 @@ class P_command : AppCompatActivity() {
             }
         }
 
-        smsBroadcastReceiver = object : SmsBroadcastReceiver() {
+        smsBroadcastReceiver1 = object : SmsBroadcastReceiver() {
             override fun broadcastResult(sms: SmsMessage) {
 
                 val firstFourCharacters = sms.displayMessageBody.take(4)
@@ -202,7 +202,7 @@ class P_command : AppCompatActivity() {
 
                     // var index = 0
 
-                    textmessage = sms.displayMessageBody
+                   textmessage = sms.displayMessageBody
 
                     for ((index, value) in relays.withIndex()) {
                         var delimiter = (index + 1).toString()
@@ -229,13 +229,13 @@ class P_command : AppCompatActivity() {
                 }
             }
         }
-        registerReceiver(smsBroadcastReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
+        registerReceiver(smsBroadcastReceiver1, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
         super.onStart()
     }
     override fun onStop() {
 
         //unregister receiver when changing the action
-        unregisterReceiver(smsBroadcastReceiver)
+        unregisterReceiver(smsBroadcastReceiver1)
         super.onStop()
     }
     fun sendSmsIskljuci1(konstanta: String) {

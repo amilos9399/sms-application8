@@ -91,12 +91,12 @@ class RelayStatus : AppCompatActivity() {
             applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
         var editor: SharedPreferences.Editor = sacuvano!!.edit()
 
-        val Status1: ImageView = findViewById(R.id.Status_R1)
-        val Status2: ImageView = findViewById(R.id.Status_R2)
-        val Status3: ImageView = findViewById(R.id.Status_R3)
-        val Status4: ImageView = findViewById(R.id.Status_R4)//
+        val status1: ImageView = findViewById(R.id.Status_R1)
+        val status2: ImageView = findViewById(R.id.Status_R2)
+        val status3: ImageView = findViewById(R.id.Status_R3)
+        val status4: ImageView = findViewById(R.id.Status_R4)//
         //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
-        val relays = arrayListOf(Status1,Status2,Status3,Status4)
+        val relays = arrayListOf(status1,status2,status3,status4)
         //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
         //sacuvano = getSharedPreferences("filesacuvano", 0)
         //  var textmessage2
