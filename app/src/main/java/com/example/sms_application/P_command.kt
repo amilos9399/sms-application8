@@ -17,6 +17,7 @@ import com.example.sms_application.SmsConstants.SMS_NUMBER
 
 
 class P_command : AppCompatActivity() {
+    lateinit var smsBroadcastReceiver : SmsBroadcastReceiver
     val pozicije2 = arrayOf(
         "10",
         "20",
@@ -147,14 +148,15 @@ class P_command : AppCompatActivity() {
 
 
     override fun onStart() {
+
         var sacuvano: SharedPreferences? =
             applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
         var editor: SharedPreferences.Editor = sacuvano!!.edit()
-
-        val Status1: ImageView = findViewById(R.id.Status_R1)
-        val Status2: ImageView = findViewById(R.id.Status_R2)
-        val Status3: ImageView = findViewById(R.id.Status_R3)
-        val Status4: ImageView = findViewById(R.id.Status_R4)//
+       // layout1 = findViewById(R.id.strana_P_komande)
+        val Status1: ImageView = findViewById(R.id.status_R9)
+        val Status2: ImageView = findViewById(R.id.status_R10)
+        val Status3: ImageView = findViewById(R.id.status_R11)
+        val Status4: ImageView = findViewById(R.id.status_R12)//
         //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
         val relays = arrayListOf(Status1,Status2,Status3,Status4)
         //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
