@@ -3,8 +3,8 @@ package com.example.sms_application
 object SmsConstants {
     const val MY_PERMISSIONS_REQUEST_RECEIVE_SMS = 111
     const val TAG = "SendMessageActivity"
-    //const val SMS_NUMBER = "+381638679450"
-    const val SMS_NUMBER = "+381621489156" //test selo Rade
+    const val SMS_NUMBER = "+381638679450" //test Telenor
+    //const val SMS_NUMBER = "+381621489156" //test selo Rade
 
     //   const val SMS_NUMBER = "+381638679450"
 //    NUMBER FOR TESTING const val SMS_NUMBER = "+38162299066"

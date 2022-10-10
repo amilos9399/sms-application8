@@ -99,9 +99,9 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:text="Klima"
+            android:text="Pumpa"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -176,9 +176,9 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:text="Bojler"
+            android:text="Svetlo"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -246,9 +246,9 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:text="Pumpa"
+            android:text="Sp. svetlo"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -315,9 +315,9 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-thin"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/svetlo_spolja"
+            android:text="Terasa"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageView

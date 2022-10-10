@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/strana_P_komande"
@@ -19,32 +19,21 @@
     <!--  app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dugmesalji_P" -->
 
-
-    <ImageView
-        android:id="@+id/status_R12"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
-        android:layout_weight="1"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/padajuci_meni2"
-        app:layout_constraintTop_toBottomOf="@+id/status_R11"
-        app:srcCompat="@drawable/sivo"
-        tools:visibility="visible" />
-
-    <ImageView
-        android:id="@+id/status_R11"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
-        android:layout_weight="1"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/padajuci_meni2"
-        app:layout_constraintTop_toBottomOf="@+id/status_R10"
-        app:srcCompat="@drawable/sivo"
-        tools:visibility="visible" />
+    <Button
+        android:id="@+id/dugmesalji_P"
+        android:layout_width="77dp"
+        android:layout_height="79dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="172dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginTop="529dp"
+        android:foreground="@drawable/dugmeuklj"
+        android:text="@string/button"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:targetApi="m" />
 
     <TextView
         android:id="@+id/textView8"
@@ -78,17 +67,23 @@
         android:id="@+id/padajuci_meni2"
         android:layout_width="163dp"
         android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginTop="110dp"
+
         android:padding="1dp"
         android:paddingLeft="1dp"
         android:paddingTop="1dp"
+
         android:paddingRight="1dp"
         android:paddingBottom="1dp"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
-
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarSize="3dp"
         android:scrollbarStyle="outsideInset"
-
         android:scrollbars="vertical"
         android:spinnerMode="dropdown"
         android:textColor="#FF0000"
@@ -100,63 +95,25 @@
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/status_R9"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="324dp"
-        android:layout_weight="1"
-        android:contentDescription="status1rele"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/padajuci_meni2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sivo"
-        tools:visibility="visible" />
-
-    <ImageView
-        android:id="@+id/status_R10"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
-        android:layout_weight="1"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/padajuci_meni2"
-        app:layout_constraintTop_toBottomOf="@+id/status_R9"
-        app:srcCompat="@drawable/sivo"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/dugmesalji_P"
-        android:layout_width="77dp"
-        android:layout_height="79dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:foreground="@drawable/dugmeuklj"
-        android:text="@string/button"
-        app:backgroundTint="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:targetApi="m" />
-
     <Spinner
         android:id="@+id/padajuci_meni1"
         android:layout_width="166dp"
         android:layout_height="48dp"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
         android:layout_marginLeft="120dp"
+        android:layout_marginTop="267dp"
         android:padding="1dp"
         android:paddingLeft="1dp"
         android:paddingTop="1dp"
         android:paddingRight="1dp"
+
         android:paddingBottom="1dp"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
-
         android:scrollbarAlwaysDrawVerticalTrack="true"
+
         android:scrollbarSize="3dp"
         android:scrollbarStyle="outsideInset"
-
         android:scrollbars="vertical"
         android:spinnerMode="dropdown"
         android:textColor="#FF0000"
@@ -186,12 +143,16 @@
         android:id="@+id/textView9"
         android:layout_width="45dp"
         android:layout_height="23dp"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
-        android:layout_marginTop="580dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="191dp"
+        android:layout_marginLeft="191dp"
+        android:layout_marginTop="626dp"
         android:text="@string/textview"
         android:textColor="#E91E63"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

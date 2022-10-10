@@ -150,13 +150,13 @@ class RelayStatus : AppCompatActivity() {
                         if(textmessage1 == "OFF"){
                           //  value.setTextColor(Color.RED)
 
-                         var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
+                            var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
                             relays[index].setImageResource(statusslikaID)
 
                         }else {
                         //    value.setTextColor(Color.GREEN)
 
-                         var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
+                            var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
                             relays[index].setImageResource(statusslikaID)
                            //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
                         }

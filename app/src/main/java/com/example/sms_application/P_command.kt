@@ -17,7 +17,8 @@ import com.example.sms_application.SmsConstants.SMS_NUMBER
 
 
 class P_command : AppCompatActivity() {
-
+    lateinit var smsBroadcastReceiver : SmsBroadcastReceiver
+    lateinit var layout: RelativeLayout
     val pozicije2 = arrayOf(
         "10",
         "20",
@@ -44,10 +45,10 @@ class P_command : AppCompatActivity() {
         "230",
         "240"
     )
-    val pozicije3 = arrayOf("Klima", "Pumpa", "Svetlo", "Spoljne svetlo")
+    val pozicije3 = arrayOf("1.Pumpa", "2.Svetlo", "3.Spoljne svetlo", "4.Terasa")
     var Pvrednost: Int = 48
     var P2vrednost: Int = 1
-    lateinit var layout1: ConstraintLayout
+    lateinit var layout2: ConstraintLayout
     public val strDate = "Current Time :  + getCurrentDate()"
     //    val pozicije = resources.getStringArray(R.array.vremenaString)
 
@@ -126,10 +127,10 @@ class P_command : AppCompatActivity() {
             }
         }
 
-        layout1 = findViewById(R.id.strana_P_komande)
+        layout2 = findViewById(R.id.strana_P_komande)
 
         //setting listener that will listen to onSwipe event
-        layout1.setOnTouchListener(object : OnSwipeTouchListener() {
+        layout2.setOnTouchListener(object : OnSwipeTouchListener() {
             override fun onSwipeLeft() {
                 Log.e("ViewSwipe", "Left")
                 val intent = Intent(applicationContext, MainActivity::class.java)
@@ -143,99 +144,100 @@ class P_command : AppCompatActivity() {
             }
 
         })
+
     }
 
-    lateinit var smsBroadcastReceiver1 : SmsBroadcastReceiver
 
-    override fun onStart() {
-        super.onStart()
-        var sacuvano1: SharedPreferences? =
-            applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
-        var editor: SharedPreferences.Editor = sacuvano1!!.edit()
-      // layout1 = findViewById(R.id.strana_P_komande)
-        val status5: ImageView = findViewById(/* id = */ R.id.status_R9)
-      //  val status6: ImageView = findViewById(R.id.status_R10)
-      //  val status3: ImageView = findViewById(R.id.status_R11)
-      //  val status4: ImageView = findViewById(R.id.status_R12)//
-        //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
-     //   val relays = arrayListOf(status1,status2,status3,status4)
-        //    FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
-        //sacuvano = getSharedPreferences("filesacuvano", 0)
-        //  var textmessage2
-        //  var textmessage2
+        override fun onStart() {
+            var sacuvano: SharedPreferences? =
+                applicationContext.getSharedPreferences("filesacuvano", 0) // 0 - for private mode
+            var editor: SharedPreferences.Editor = sacuvano!!.edit()
 
-        var textmessage = sacuvano1.getString("porukaizmemo","1OFF2OFF3OFF4OFF")
+            /*val status1: ImageView = findViewById(R.id.Status_R1)
+            val status2: ImageView = findViewById(R.id.Status_R2)
+            val status3: ImageView = findViewById(R.id.Status_R3)
+            val status4: ImageView = findViewById(R.id.Status_R4)
+            //  val relays = arrayListOf(relayOne,relayTwo,relayThree,relayFour)
+            val relays = arrayListOf(status1,status2,status3,status4)*/
+            //                  FORMAT -> 1OFF2ON 3OFF4ON       Index 0,1,2,3...
+            //sacuvano = getSharedPreferences("filesacuvano", 0)
+            //  var textmessage2
+            //   var textmessage2
 
-      /*  for ((index, value) in relays.withIndex()) {
-            var delimiter = (index + 1).toString()
-            //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
-            var textmessage1 = (textmessage!!.substringAfterLast(delimiter, "OFF").take(3))
-            //     Log.i(index.toString(), "Prosao 1" + intent.action)
-            if(textmessage1 == "OFF"){
-                //  value.setTextColor(Color.RED)
+            var textmessage = sacuvano.getString("porukaizmemo","1OFF2OFF3OFF4OFF")
 
-                var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
-                relays[index].setImageResource(statusslikaID)
+            /*for ((index, value) in relays.withIndex()) {
+                var delimiter = (index + 1).toString()
+                //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
+                var textmessage1 = (textmessage!!.substringAfterLast(delimiter, "OFF").take(3))
+                //     Log.i(index.toString(), "Prosao 1" + intent.action)
+                if(textmessage1 == "OFF"){
+                    //  value.setTextColor(Color.RED)
 
-            }else {
-                //    value.setTextColor(Color.GREEN)
+                    var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
+                    relays[index].setImageResource(statusslikaID)
 
-                var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
-                relays[index].setImageResource(statusslikaID)
-                //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
-            }
-        }*/
+                }else {
+                    //    value.setTextColor(Color.GREEN)
 
-        smsBroadcastReceiver1 = object : SmsBroadcastReceiver() {
-            override fun broadcastResult(sms: SmsMessage) {
+                    var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
+                    relays[index].setImageResource(statusslikaID)
+                    //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
+                }
+            }*/
 
-                val firstFourCharacters = sms.displayMessageBody.take(4)
-                if (firstFourCharacters.contains("OFF", ignoreCase = true) || firstFourCharacters.contains("ON", ignoreCase = true)) {
+            smsBroadcastReceiver = object : SmsBroadcastReceiver() {
+                override fun broadcastResult(sms: SmsMessage) {
 
-                    //  textmessage = sms.toString()
-                    //  val relayOne: TextView = findViewById(R.id.relay1)
-                    //  val relayTwo: TextView = findViewById(R.id.relay2)
-                    //  val relayThree: TextView = findViewById(R.id.relay3)
-                    //  val relayFour: TextView = findViewById(R.id.relay4)
+                    val firstFourCharacters = sms.displayMessageBody.take(4)
+                    if (firstFourCharacters.contains("OFF", ignoreCase = true) || firstFourCharacters.contains("ON", ignoreCase = true)) {
+
+                        //  textmessage = sms.toString()
+                        //  val relayOne: TextView = findViewById(R.id.relay1)
+                        //  val relayTwo: TextView = findViewById(R.id.relay2)
+                        //  val relayThree: TextView = findViewById(R.id.relay3)
+                        //  val relayFour: TextView = findViewById(R.id.relay4)
 
 
 
-                    // var index = 0
+                        // var index = 0
 
-                   textmessage = sms.displayMessageBody
+                         textmessage = sms.displayMessageBody
 
-                   /* for ((index, value) in relays.withIndex()) {
-                        var delimiter = (index + 1).toString()
-                        //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
-                        var textmessage1 = sms.displayMessageBody.substringAfterLast(delimiter, "OFF").take(3)
-                        //     Log.i(index.toString(), "Prosao 1" + intent.action)
-                        if(textmessage1 == "OFF"){
-                            //  value.setTextColor(Color.RED)
+                         /*for ((index, value) in relays.withIndex()) {
+                             var delimiter = (index + 1).toString()
+                             //will take value after last number. In this input string 1OFF2ON 3OFF4ON it's getting OFF for first, ON for second and so on
+                             var textmessage1 = sms.displayMessageBody.substringAfterLast(delimiter, "OFF").take(3)
+                             //     Log.i(index.toString(), "Prosao 1" + intent.action)
+                             if(textmessage1 == "OFF"){
+                                 //  value.setTextColor(Color.RED)
 
-                            var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
-                            relays[index].setImageResource(statusslikaID)
+                                 var   statusslikaID = resources.getIdentifier("crveno1", "drawable", packageName)
+                                 relays[index].setImageResource(statusslikaID)
 
-                        }else {
-                            //    value.setTextColor(Color.GREEN)
+                             }else {
+                                 //    value.setTextColor(Color.GREEN)
 
-                            var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
-                            relays[index].setImageResource(statusslikaID)
-                            //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
-                        }
-                    }*/
-                    editor.putString("porukaizmemo", textmessage);
-                    editor.apply(); // commit changes
+                                 var   statusslikaID = resources.getIdentifier("zeleno1", "drawable", packageName)
+                                 relays[index].setImageResource(statusslikaID)
+                                 //Status1.setImageDrawable(getResources().getDrawable(R.drawable.crveno1))
+                             }
+                         }*/
+                        editor.putString("porukaizmemo", textmessage);
+                        editor.apply(); // commit changes
 
+                    }
                 }
             }
-        }
-        registerReceiver(smsBroadcastReceiver1, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
+            registerReceiver(smsBroadcastReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
+            super.onStart()
 
-    }
-    override fun onStop() {
+
+        }
+
+
+    override fun onStop(){
         super.onStop()
-        //unregister receiver when changing the action
-        unregisterReceiver(smsBroadcastReceiver1)
 
     }
     fun sendSmsIskljuci1(konstanta: String) {
